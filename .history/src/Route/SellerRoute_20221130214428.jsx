@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 
 import Loading from '../../Shared/Loading/Loading';
-import useSeller from '../../useHooks/useSeller';
+import SellerHooks from '../../useHooks/SellerHooks';
 import { Authcontext } from '../Components/Context/AuthProvider';
 import Loader from '../Components/Loader';
 import SellerHooks from '../Hooks/SellerHooks';

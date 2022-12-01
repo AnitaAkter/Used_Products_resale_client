@@ -4,7 +4,7 @@ import Navbar from '../../Components/Navbar';
 import AdminHooks from '../../Hooks/AdminHook';
 
 const Dashboard = () => {
-    const {user} = useContext)
+    const { user } = useContext)
     const [isAdmin] = AdminHooks()
     return (
         <div>

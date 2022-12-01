@@ -8,7 +8,7 @@ import Loader from '../Components/Loader';
 const AdminRoute = ({ children }) => {
 
     const { user, loading } = useContext(Authcontext);
-    const [isAdmin, isAdminLoading] = useAdmin(user?.email)
+    const [isAdmin, isAdminLoading] = AdminHooks(user?.email)
     const location = useLocation();
 
     if (loading

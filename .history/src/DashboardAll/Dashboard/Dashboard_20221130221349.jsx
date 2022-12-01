@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import SellerHooks from '../../../../src/Hooks/SellerHooks';
+
 import { Authcontext } from '../../Components/Context/AuthProvider';
 import Navbar from '../../Components/Navbar';
 import AdminHooks from '../../Hooks/AdminHook';
-import SellerHooks from '../../Hooks/SellerHooks';
+
 
 const Dashboard = () => {
     const { user } = useContext(Authcontext)

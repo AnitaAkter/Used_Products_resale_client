@@ -3,14 +3,14 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 import Loading from '../../Shared/Loading/Loading';
-import useSeller from '../../useHooks/useSeller';
+import SellerHooks from '../../useHooks/SellerHooks';
 import Loader from '../Components/Loader';
 
 
 const SellerRoute = ({ children }) => {
 
     const { user, loading } = useContext(AuthContext);
-    const [isSeller, isSellerLoading] = useSeller(user?.email)
+    const [isSeller, isSellerLoading] = SellerHooks(user?.email)
     const location = useLocation();
 
     if (loading
