@@ -30,7 +30,7 @@ const MyProducts = () => {
 
     return (
         <div className=' bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 p-5'>
-            <h1 className='text-4xl text-white font-bold mb-5'>My Product</h1>
+            <h1 className='text-4xl '>My Product</h1>
             <div className='mx-5'>
 
                 <div className="overflow-x-auto ">

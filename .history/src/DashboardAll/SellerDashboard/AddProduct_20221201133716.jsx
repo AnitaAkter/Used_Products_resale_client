@@ -12,6 +12,8 @@ const AddProduct = () => {
     const { user } = useContext(Authcontext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
+    // const [cratedUseremail, setCratedUseremail] = useState('')
+    // const [token] = TokenHooks(cratedUseremail)
     const date = new Date().toLocaleString()
    
     const location = useLocation()

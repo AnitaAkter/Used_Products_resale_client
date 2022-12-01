@@ -87,7 +87,7 @@ const AddProduct = () => {
     return (
         <div className='m-10 '>
             <div className='h-1/2 flex justify-center items-center'>
-                <div className='w-2/3 lg:w-1/2 p-7 rounded-lg border  bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 font-bold'>
+                <div className='w-2/3 lg:w-1/2 p-7 rounded-lg border authorization: `bearer ${localStorage.getItem('accessToken')}` font-bold'>
                     <h2 className='text-xl text-center  text-white'>Sign Up</h2>
                     <form onSubmit={handleSubmit(handleAddProdut)}>
                         <div className="form-control w-full max-w-">

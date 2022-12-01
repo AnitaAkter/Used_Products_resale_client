@@ -29,7 +29,7 @@ const Dashboard = () => {
                         <ul className="menu p-4 w-80 bg-base-100  bg-gradient-to-r from-blue-900 via-blue-500
                          to-blue-900 font-bold text-white">
                             {
-                                !isSeller && !isAdmin &&
+                                !isSeller && !isAdmin
                                 <>
                                     <li>
                                         <Link to={"/dashboard"}>My Orders</Link>
@@ -39,37 +39,37 @@ const Dashboard = () => {
                                     </li>
                                 </>
                             }
-                            {
-                                isAdmin &&
-                                <>
-                                    <li>
-                                        <Link to={"/dashboard/allusers"}>All Users</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={"/dashboard/allreports"}>Report</Link>
-                                    </li>
-                                </>
-                            }
-                            {
-                                isSeller &&
-                                <>
-                                    <li>
-                                        <Link to={"/dashboard/addProduct"}>Add Product</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={"/dashboard/myallprodcuts"}>My Product</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={"/dashboard/buyers"}>My Buyers</Link>
-                                    </li>
-                                </>
-                            }
-                        </ul>
-                    </div>
+                        {
+                            isAdmin &&
+                            <>
+                                <li>
+                                    <Link to={"/dashboard/allusers"}>All Users</Link>
+                                </li>
+                                <li>
+                                    <Link to={"/dashboard/allreports"}>Report</Link>
+                                </li>
+                            </>
+                        }
+                        {
+                            isSeller &&
+                            <>
+                                <li>
+                                    <Link to={"/dashboard/addProduct"}>Add Product</Link>
+                                </li>
+                                <li>
+                                    <Link to={"/dashboard/myallprodcuts"}>My Product</Link>
+                                </li>
+                                <li>
+                                    <Link to={"/dashboard/buyers"}>My Buyers</Link>
+                                </li>
+                            </>
+                        }
+                    </ul>
                 </div>
-                <hr />
-                <Footer></Footer>
             </div>
+            <hr />
+            <Footer></Footer>
+        </div>
         </div >
     );
 };

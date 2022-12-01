@@ -22,6 +22,7 @@ const Dashboard = () => {
                 <div className="drawer drawer-end  ">
                     <input id="dashboard" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
+                        <h1>Welcome to Dashboard</h1>
                         <Outlet></Outlet>
                     </div>
                     <div className="drawer-side ">
@@ -29,7 +30,7 @@ const Dashboard = () => {
                         <ul className="menu p-4 w-80 bg-base-100  bg-gradient-to-r from-blue-900 via-blue-500
                          to-blue-900 font-bold text-white">
                             {
-                                !isSeller && !isAdmin &&
+                                !isSeller &&
                                 <>
                                     <li>
                                         <Link to={"/dashboard"}>My Orders</Link>
@@ -70,7 +71,7 @@ const Dashboard = () => {
                 <hr />
                 <Footer></Footer>
             </div>
-        </div >
+        </div>
     );
 };
 
