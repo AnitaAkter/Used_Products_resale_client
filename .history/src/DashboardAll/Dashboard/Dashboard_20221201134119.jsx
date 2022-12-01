@@ -16,6 +16,7 @@ const Dashboard = () => {
     return (
         <div>
             <div>
+
                 <Navbar></Navbar>
                 <div className="drawer drawer-end  ">
                     <input id="dashboard" type="checkbox" className="drawer-toggle" />
