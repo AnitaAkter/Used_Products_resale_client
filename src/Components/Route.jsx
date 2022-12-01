@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/singleProduct/:id',
-                element: <SingleProduct></SingleProduct>,
+                element: <PrivateRoute> <SingleProduct></SingleProduct></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://sales-ex-server.vercel.app/phones/${params.id}`)
             }
 
