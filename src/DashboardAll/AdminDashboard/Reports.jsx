@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 
 const Reports = () => {
     const { user } = useContext(Authcontext)
-    const url = `http://localhost:5000/reports`;
+    const url = `https://sales-ex-server.vercel.app/reports`;
     const { data: reportsall = [], isLoading, refetch } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
@@ -25,7 +25,7 @@ const Reports = () => {
 
     const handleDelete = data => {
         console.log(data);
-        fetch(`http://localhost:5000/reports/${data}`, {
+        fetch(`https://sales-ex-server.vercel.app/reports/${data}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

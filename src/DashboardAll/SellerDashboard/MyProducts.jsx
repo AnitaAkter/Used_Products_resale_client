@@ -8,7 +8,7 @@ import { Authcontext } from '../../Components/Context/AuthProvider';
 
 const MyProducts = () => {
     const { user } = useContext(Authcontext)
-    const url = `http://localhost:5000/sellersproduct?email=${user?.email}`;
+    const url = `https://sales-ex-server.vercel.app/sellersproduct?email=${user?.email}`;
     const { data: sellersproduct = [] } = useQuery({
         queryKey: ['sellersproduct', user?.email],
         queryFn: async () => {
@@ -24,7 +24,24 @@ const MyProducts = () => {
 
     })
 
+    const handleAd = (data) => {
+        fetch('https://sales-ex-server.vercel.app/ad', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(data)
 
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if (result.acknowledged) {
+                    swal('This item has been advertized. Check Advertise Section')
+                }
+            })
+    }
 
 
 
@@ -60,7 +77,7 @@ const MyProducts = () => {
                                         </td>
                                         <td>
                                             {
-                                                <button className="btn btn-primary btn-xs">Advertise</button>
+                                                <button onClick={() => handleAd(Mobile)} className="btn btn-primary btn-xs">Advertise</button>
                                             }
                                         </td>
                                     </tr>

@@ -13,7 +13,7 @@ const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const date = new Date().toLocaleString()
-   
+
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
 
@@ -53,7 +53,7 @@ const AddProduct = () => {
 
                     }
 
-                    fetch('http://localhost:5000/phones', {
+                    fetch('https://sales-ex-server.vercel.app/phones', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

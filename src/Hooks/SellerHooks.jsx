@@ -5,7 +5,7 @@ const SellerHooks = email => {
     const [isSellerLoading, setisSellerLoading] = useState(false)
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://sales-ex-server.vercel.app/users/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

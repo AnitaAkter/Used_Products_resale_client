@@ -7,11 +7,11 @@ import swal from 'sweetalert';
 const MyWishlist = () => {
     const { user } = useContext(Authcontext)
     const [wishall, setWishAll] = useState('')
-    // const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    // const url = `https://sales-ex-server.vercel.app/wishlist?email=${user?.email}`;
     const { data: wishlists = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/wishlist?email=${user?.email}`, {
+            const res = await fetch(`https://sales-ex-server.vercel.app/wishlist?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -26,7 +26,7 @@ const MyWishlist = () => {
     const handleWish = data => {
         console.log(data)
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://sales-ex-server.vercel.app/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

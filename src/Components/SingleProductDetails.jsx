@@ -24,7 +24,7 @@ const SingleProductDetails = ({ productBox, setBookedMobile }) => {
 
         }
 
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://sales-ex-server.vercel.app/wishlist', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ const SingleProductDetails = ({ productBox, setBookedMobile }) => {
         }
         console.log(report)
 
-        fetch('http://localhost:5000/reports', {
+        fetch('https://sales-ex-server.vercel.app/reports', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -6,7 +6,7 @@ import Loader from '../../Components/Loader';
 
 const MyOrders = () => {
     const { user } = useContext(Authcontext)
-    const url = `http://localhost:5000/orders?email=${user?.email}`;
+    const url = `https://sales-ex-server.vercel.app/orders?email=${user?.email}`;
     const { data: orders = [], isLoading } = useQuery({
         queryKey: ['orders', user?.email],
         queryFn: async () => {
@@ -46,8 +46,8 @@ const MyOrders = () => {
                         {orders && orders?.map((order, i) => <tr key={order._id}>
                             <th>{i + 1}</th>
                             <td><img className='w-24 h-16' src={order.picture} alt="" /></td>
-                            <td>{order.MobileName}</td>
-                            <td>{order.price}</td>
+                            <td>{order.MobileName || order.title}</td>
+                            <td>{order.price || order.resale_price}</td>
                             <td>{
                                 order.price && !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
                                     <button className="btn btn-acccent btn-md">Pay</button>

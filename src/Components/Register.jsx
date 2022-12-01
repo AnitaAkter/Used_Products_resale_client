@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-
-// import useToken from '../../useHooks/useToken';
 import { Authcontext } from './Context/AuthProvider';
 
 
@@ -16,11 +14,6 @@ const Register = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [cratedUseremail, setCratedUseremail] = useState('')
-    // const [token] = useToken(cratedUseremail)
-
-    // if (token) {
-    //     navigate('/')
-    // }
 
 
     const from = location.state?.from?.pathname || '/'
@@ -32,6 +25,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 swal('User Created Successfully.')
+                navigate('/')
                 const userInfo = {
                     displayName: data.name,
                 }
@@ -50,7 +44,7 @@ const Register = () => {
 
     const savedUser = (name, email, role) => {
         const user = { name, email, role };
-        fetch('http://localhost:5000/usersall',
+        fetch('https://sales-ex-server.vercel.app/usersall',
             {
                 method: 'POST',
                 headers: {

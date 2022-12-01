@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: '/singleProduct/:id',
                 element: <SingleProduct></SingleProduct>,
-                loader: ({ params }) => fetch(`http://localhost:5000/phones/${params.id}`)
+                loader: ({ params }) => fetch(`https://sales-ex-server.vercel.app/phones/${params.id}`)
             }
 
         ]
