@@ -9,7 +9,7 @@ import { Authcontext } from '../../Components/Context/AuthProvider';
 const MyProducts = () => {
     const { user } = useContext(Authcontext)
     const url = `https://sales-ex-server.vercel.app/sellersproduct?email=${user?.email}`;
-    const { data: sellersproduct = [] } = useQuery({
+    const { data: sellersproduct = [], refetch } = useQuery({
         queryKey: ['sellersproduct', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -43,7 +43,24 @@ const MyProducts = () => {
             })
     }
 
+    const handleDelete = data => {
+        fetch(`https://sales-ex-server.vercel.app/sellersproduct/${data}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        }
+        )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    refetch()
+                    swal('Deleted Successfully')
 
+                }
+            })
+    }
 
     return (
         <div className=' bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 p-5'>
@@ -60,6 +77,7 @@ const MyProducts = () => {
                                 <th>Product Picture</th>
                                 <th>Product Name</th>
                                 <th>Available</th>
+                                <th>Manage</th>
                                 <th>Advertise</th>
                             </tr>
                         </thead>
@@ -70,10 +88,16 @@ const MyProducts = () => {
                                         <th>{i + 1}</th>
                                         <td><img className='w-24' src={Mobile.picture} alt="" /></td>
                                         <td>"{Mobile.title}"</td>
+
                                         <td>
                                             {Mobile?.paid && <p>Sold</p>}
                                             {!Mobile?.stock && <p>Avaialble</p>}
 
+                                        </td>
+                                        <td>
+                                            {<button
+                                                onClick={() => handleDelete(Mobile._id)}
+                                                className='btn btn-secondary btn-xs'>Delete</button>}
                                         </td>
                                         <td>
                                             {
@@ -96,3 +120,8 @@ const MyProducts = () => {
 };
 
 export default MyProducts;
+
+
+
+
+
