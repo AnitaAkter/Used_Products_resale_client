@@ -28,9 +28,6 @@ const Navbar = () => {
             </li>
             {user?.email ? (
                 <>
-                    {/* <li className="font-bold">
-                        <Link to="/add">Add Products</Link>
-                    </li> */}
                     <li className="font-bold">
                         <Link to="/dashboard">Dashboard</Link>
                     </li>

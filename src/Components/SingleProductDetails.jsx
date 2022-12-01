@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import swal from 'sweetalert';
+import AdminHooks from '../Hooks/AdminHook';
 import SellerHooks from '../Hooks/SellerHooks';
 import { Authcontext } from './Context/AuthProvider';
 
@@ -8,6 +9,7 @@ const SingleProductDetails = ({ productBox, setBookedMobile }) => {
     const { category_name, title, picture, location, buying_price, resale_price, Purchase_Year, Uses_of_Year, the_time_it_posted, Name_of_Seller, Verified, condition, number_of_seller, Order_id, details } = productBox;
     const { user } = useContext(Authcontext)
     const [isSeller] = SellerHooks(user?.email)
+    const [isAdmin] = AdminHooks(user?.email)
 
     const handleWishList = data => {
         const wishlist = {
@@ -106,19 +108,19 @@ const SingleProductDetails = ({ productBox, setBookedMobile }) => {
                     <div className="card-actions grid justify-center content-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
 
                         <label
-                            disabled={productBox.length === 0 || isSeller}
+                            disabled={productBox.length === 0 || isSeller || isAdmin}
                             htmlFor="modal-booking" className="btn btn-accent text-white"
                             onClick={() => setBookedMobile(productBox)}
                         >Buy Now
                         </label>
                         <label
-                            disabled={productBox.length === 0 || isSeller}
+                            disabled={productBox.length === 0 || isSeller || isAdmin}
                             className="btn btn-accent text-white"
                             onClick={() => handleWishList(productBox)}
                         >Add to Wishlist
                         </label>
                         <label
-                            disabled={productBox.length === 0 || isSeller}
+                            disabled={productBox.length === 0 || isSeller || isAdmin}
                             className="btn btn-accent text-white"
                             onClick={() => handleReport(productBox)}
                         >Report
